@@ -1,0 +1,163 @@
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='TaskManagerApi'*/[0m
+  [1m[35m (35.2ms)[0m  [1m[35mCREATE DATABASE "task_manager_api_development" ENCODING = 'unicode' /*application='TaskManagerApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='TaskManagerApi'*/[0m
+  [1m[35m (19.1ms)[0m  [1m[35mCREATE DATABASE "task_manager_api_test" ENCODING = 'unicode' /*application='TaskManagerApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5227565958280157835) /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5227565958280157835) /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Implementare autenticazione utente' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Scrivere documentazione API completa' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Configurare pipeline CI/CD' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Ottimizzare performance database PostgreSQL' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Implementare rate limiting per API' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Progettare interfaccia utente moderna' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Implementare tema scuro per applicazione' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Scrivere test di integrazione completi' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Create (1.6ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "completed", "created_at", "updated_at") VALUES ('Scrivere test di integrazione completi', 'Creare suite di test end-to-end per tutti i flussi principali dell''applicazione', FALSE, '2025-06-10 13:31:11.095580', '2025-06-10 14:31:11.097491') RETURNING "id" /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Configurare code coverage reporting' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Configurare environment di staging' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Create (3.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "completed", "created_at", "updated_at") VALUES ('Configurare environment di staging', 'Preparare ambiente di pre-produzione per testing finale prima del deploy', FALSE, '2025-06-10 14:01:11.118324', '2025-06-10 14:31:11.120667') RETURNING "id" /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Setup monitoraggio e logging produzione' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Audit sicurezza applicazione' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."completed" = TRUE /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."completed" = FALSE /*application='TaskManagerApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='TaskManagerApi'*/[0m
+  [1m[35m (24.4ms)[0m  [1m[35mCREATE DATABASE "task_manager_api_development" ENCODING = 'unicode' /*application='TaskManagerApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='TaskManagerApi'*/[0m
+  [1m[35m (21.9ms)[0m  [1m[35mCREATE DATABASE "task_manager_api_test" ENCODING = 'unicode' /*application='TaskManagerApi'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5227565958280157835) /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5227565958280157835) /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (16.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Implementare autenticazione utente' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Scrivere documentazione API completa' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Configurare pipeline CI/CD' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Ottimizzare performance database PostgreSQL' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Implementare rate limiting per API' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Progettare interfaccia utente moderna' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Implementare tema scuro per applicazione' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Scrivere test di integrazione completi' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Configurare code coverage reporting' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Configurare environment di staging' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Setup monitoraggio e logging produzione' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Audit sicurezza applicazione' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."completed" = TRUE /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."completed" = FALSE /*application='TaskManagerApi'*/[0m
+Started GET "/api/v1/tasks?page=1&per_page=10" for ::1 at 2025-06-10 16:32:14 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+Processing by Api::V1::TasksController#index as HTML
+  Parameters: {"page" => "1", "per_page" => "10"}
+  [1m[36mTask Load (28.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY created_at desc LIMIT 10 OFFSET 0 /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:17:in 'Enumerable#map'
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x00000001475189a0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x00000001475189a0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x00000001475189a0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x00000001475189a0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x00000001475189a0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x00000001475189a0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x00000001475189a0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x00000001475189a0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x00000001475189a0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x00000001475189a0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+  [1m[36mTask Count (7.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:187:in 'Api::V1::TasksController#pagination_meta'
+Completed 200 OK in 170ms (Views: 4.6ms | ActiveRecord: 67.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/tasks?page=1&per_page=10" for ::1 at 2025-06-10 16:32:15 +0200
+Processing by Api::V1::TasksController#index as HTML
+  Parameters: {"page" => "1", "per_page" => "10"}
+  [1m[36mTask Load (23.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY created_at desc LIMIT 10 OFFSET 0 /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:17:in 'Enumerable#map'
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000000147d3a020>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000000147d3a020>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000000147d3a020>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000000147d3a020>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000000147d3a020>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000000147d3a020>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000000147d3a020>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000000147d3a020>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000000147d3a020>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000000147d3a020>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+  [1m[36mTask Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:187:in 'Api::V1::TasksController#pagination_meta'
+Completed 200 OK in 72ms (Views: 2.0ms | ActiveRecord: 23.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='TaskManagerApi'*/[0m
+  [1m[35m (24.8ms)[0m  [1m[35mCREATE DATABASE "task_manager_api_development" ENCODING = 'unicode' /*application='TaskManagerApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='TaskManagerApi'*/[0m
+  [1m[35m (15.6ms)[0m  [1m[35mCREATE DATABASE "task_manager_api_test" ENCODING = 'unicode' /*application='TaskManagerApi'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5227565958280157835) /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5227565958280157835) /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Implementare autenticazione utente' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Scrivere documentazione API completa' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Configurare pipeline CI/CD' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Ottimizzare performance database PostgreSQL' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Implementare rate limiting per API' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Progettare interfaccia utente moderna' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Implementare tema scuro per applicazione' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Scrivere test di integrazione completi' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Configurare code coverage reporting' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Configurare environment di staging' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Setup monitoraggio e logging produzione' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Audit sicurezza applicazione' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."completed" = TRUE /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."completed" = FALSE /*application='TaskManagerApi'*/[0m
+Started GET "/api/v1/tasks?page=1&per_page=10" for ::1 at 2025-06-10 16:34:51 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+Processing by Api::V1::TasksController#index as HTML
+  Parameters: {"page" => "1", "per_page" => "10"}
+  [1m[36mTask Load (61.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY created_at desc LIMIT 10 OFFSET 0 /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:17:in 'Enumerable#map'
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012d271a40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012d271a40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012d271a40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012d271a40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012d271a40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012d271a40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012d271a40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012d271a40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012d271a40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012d271a40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+  [1m[36mTask Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:187:in 'Api::V1::TasksController#pagination_meta'
+Completed 200 OK in 197ms (Views: 5.4ms | ActiveRecord: 100.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/tasks?page=1&per_page=10" for ::1 at 2025-06-10 16:34:51 +0200
+Processing by Api::V1::TasksController#index as HTML
+  Parameters: {"page" => "1", "per_page" => "10"}
+  [1m[36mTask Load (1.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY created_at desc LIMIT 10 OFFSET 0 /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:17:in 'Enumerable#map'
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012dd1bcc0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012dd1bcc0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012dd1bcc0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012dd1bcc0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012dd1bcc0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012dd1bcc0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012dd1bcc0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012dd1bcc0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012dd1bcc0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x000000012dd1bcc0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+  [1m[36mTask Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:187:in 'Api::V1::TasksController#pagination_meta'
+Completed 200 OK in 42ms (Views: 1.0ms | ActiveRecord: 2.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
