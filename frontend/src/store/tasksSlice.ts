@@ -91,6 +91,9 @@ const tasksSlice = createSlice({
         },
         clearCurrentTask: (state) => {
             state.currentTask = null;
+        },
+        setFilters: (state, action: PayloadAction<SearchFilters>) => {
+            state.filters = action.payload;
         }
     },
     extraReducers: (builder) => {
@@ -107,7 +110,7 @@ const tasksSlice = createSlice({
             })
             .addCase(fetchTasks.rejected, (state, action) => {
                 state.loading.fetchTasks = 'idle';
-                state.error = action.error.message || 'Error loading tasks';
+                state.error = action.error.message || 'Errore nel caricamento dei task';
             })
 
             // Fetch single task
@@ -206,7 +209,8 @@ const tasksSlice = createSlice({
 export const {
     clearError,
     setCurrentTask,
-    clearCurrentTask
+    clearCurrentTask,
+    setFilters
 } = tasksSlice.actions;
 
 export default tasksSlice.reducer;

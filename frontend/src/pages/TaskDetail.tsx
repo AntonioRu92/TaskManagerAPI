@@ -55,11 +55,11 @@ const TaskDetail: React.FC = () => {
                     completed: !currentTask.completed
                 })).unwrap();
                 showToast(
-                    !currentTask.completed ? 'Task marked as completed!' : 'Task marked as in progress!',
+                    !currentTask.completed ? 'Task segnato come completato!' : 'Task segnato come in corso!',
                     'success'
                 );
             } catch (error) {
-                showToast('Failed to update task', 'error');
+                showToast('Errore nell\'aggiornamento del task', 'error');
             }
         }
     };
@@ -68,16 +68,16 @@ const TaskDetail: React.FC = () => {
         if (currentTask) {
             try {
                 await dispatch(deleteTask(currentTask.id)).unwrap();
-                showToast('Task deleted successfully!', 'success');
+                showToast('Task eliminato con successo!', 'success');
                 navigate('/tasks');
             } catch (error) {
-                showToast('Failed to delete task', 'error');
+                showToast('Errore nell\'eliminazione del task', 'error');
             }
         }
     };
 
     const formatDate = (dateString: string) => {
-        return new Date(dateString).toLocaleDateString('en-US', {
+        return new Date(dateString).toLocaleDateString('it-IT', {
             year: 'numeric',
             month: 'long',
             day: 'numeric',
@@ -87,7 +87,7 @@ const TaskDetail: React.FC = () => {
     };
 
     if (isLoadingTask) {
-        return <Loading size="large" text="Loading task details..." />;
+        return <Loading size="large" text="Caricamento dettagli task..." />;
     }
 
     if (!currentTask && !isLoadingTask) {
@@ -95,9 +95,9 @@ const TaskDetail: React.FC = () => {
             <div className="max-w-4xl mx-auto">
                 <div className="text-center py-12">
                     <ExclamationTriangleIcon className="mx-auto h-12 w-12 text-red-400" />
-                    <h3 className="mt-2 text-sm font-medium text-gray-900">Task not found</h3>
+                    <h3 className="mt-2 text-sm font-medium text-gray-900">Task non trovato</h3>
                     <p className="mt-1 text-sm text-gray-500">
-                        The task you're looking for doesn't exist or has been deleted.
+                        Il task che stai cercando non esiste o è stato eliminato.
                     </p>
                     <div className="mt-6">
                         <Link
@@ -105,7 +105,7 @@ const TaskDetail: React.FC = () => {
                             className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
                         >
                             <ArrowLeftIcon className="h-4 w-4 mr-2" />
-                            Back to Tasks
+                            Torna ai Task
                         </Link>
                     </div>
                 </div>
@@ -126,7 +126,7 @@ const TaskDetail: React.FC = () => {
                     className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700"
                 >
                     <ArrowLeftIcon className="h-4 w-4 mr-1" />
-                    Back to Tasks
+                    Torna ai Task
                 </Link>
             </div>
 
@@ -162,17 +162,17 @@ const TaskDetail: React.FC = () => {
                                         ? 'bg-green-100 text-green-800'
                                         : 'bg-blue-100 text-blue-800'
                                         }`}>
-                                        {currentTask.completed ? 'Completed' : 'In Progress'}
+                                        {currentTask.completed ? 'Completato' : 'In Corso'}
                                     </span>
 
                                     <div className="flex items-center text-sm text-gray-500">
                                         <ClockIcon className="h-4 w-4 mr-1" />
-                                        <span>Created {formatDate(currentTask.created_at)}</span>
+                                        <span>Creato {formatDate(currentTask.created_at)}</span>
                                     </div>
 
                                     {currentTask.updated_at !== currentTask.created_at && (
                                         <div className="flex items-center text-sm text-gray-500">
-                                            <span>• Updated {formatDate(currentTask.updated_at)}</span>
+                                            <span>• Aggiornato {formatDate(currentTask.updated_at)}</span>
                                         </div>
                                     )}
                                 </div>
@@ -186,7 +186,7 @@ const TaskDetail: React.FC = () => {
                                 className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                             >
                                 <PencilIcon className="h-4 w-4 mr-2" />
-                                Edit
+                                Modifica
                             </Link>
 
                             <button
@@ -194,7 +194,7 @@ const TaskDetail: React.FC = () => {
                                 className="inline-flex items-center px-3 py-2 border border-red-300 shadow-sm text-sm leading-4 font-medium rounded-md text-red-700 bg-white hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                             >
                                 <TrashIcon className="h-4 w-4 mr-2" />
-                                Delete
+                                Elimina
                             </button>
                         </div>
                     </div>
@@ -204,7 +204,7 @@ const TaskDetail: React.FC = () => {
                 <div className="px-6 py-6">
                     {currentTask.description ? (
                         <div>
-                            <h3 className="text-lg font-medium text-gray-900 mb-3">Description</h3>
+                            <h3 className="text-lg font-medium text-gray-900 mb-3">Descrizione</h3>
                             <div className="prose prose-sm max-w-none">
                                 <p className="text-gray-700 whitespace-pre-wrap">
                                     {currentTask.description}
@@ -213,7 +213,7 @@ const TaskDetail: React.FC = () => {
                         </div>
                     ) : (
                         <div className="text-center py-8">
-                            <p className="text-gray-500 italic">No description provided</p>
+                            <p className="text-gray-500 italic">Nessuna descrizione fornita</p>
                         </div>
                     )}
                 </div>
@@ -225,9 +225,9 @@ const TaskDetail: React.FC = () => {
                             <p>Task ID: #{currentTask.id}</p>
                         </div>
                         <div className="text-right">
-                            <p>Created: {formatDate(currentTask.created_at)}</p>
+                            <p>Creato: {formatDate(currentTask.created_at)}</p>
                             {currentTask.updated_at !== currentTask.created_at && (
-                                <p>Last updated: {formatDate(currentTask.updated_at)}</p>
+                                <p>Ultimo aggiornamento: {formatDate(currentTask.updated_at)}</p>
                             )}
                         </div>
                     </div>
@@ -242,10 +242,10 @@ const TaskDetail: React.FC = () => {
                             <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100">
                                 <ExclamationTriangleIcon className="h-6 w-6 text-red-600" />
                             </div>
-                            <h3 className="text-lg font-medium text-gray-900 mt-5">Delete Task</h3>
+                            <h3 className="text-lg font-medium text-gray-900 mt-5">Elimina Task</h3>
                             <div className="mt-2 px-7 py-3">
                                 <p className="text-sm text-gray-500">
-                                    Are you sure you want to delete this task? This action cannot be undone.
+                                    Sei sicuro di voler eliminare questo task? Questa azione non può essere annullata.
                                 </p>
                             </div>
                             <div className="flex justify-center space-x-4 mt-4">
@@ -253,13 +253,13 @@ const TaskDetail: React.FC = () => {
                                     onClick={handleDelete}
                                     className="px-4 py-2 bg-red-600 text-white text-base font-medium rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
                                 >
-                                    Delete
+                                    Elimina
                                 </button>
                                 <button
                                     onClick={() => setShowDeleteConfirm(false)}
                                     className="px-4 py-2 bg-gray-200 text-gray-900 text-base font-medium rounded-md shadow-sm hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500"
                                 >
-                                    Cancel
+                                    Annulla
                                 </button>
                             </div>
                         </div>

@@ -32,15 +32,15 @@ const CreateTask: React.FC = () => {
         const newErrors: Record<string, string> = {};
 
         if (!formData.title.trim()) {
-            newErrors.title = 'Title is required';
+            newErrors.title = 'Il titolo è obbligatorio';
         } else if (formData.title.trim().length < 3) {
-            newErrors.title = 'Title must be at least 3 characters long';
+            newErrors.title = 'Il titolo deve essere lungo almeno 3 caratteri';
         } else if (formData.title.trim().length > 200) {
-            newErrors.title = 'Title must be less than 200 characters';
+            newErrors.title = 'Il titolo deve essere inferiore a 200 caratteri';
         }
 
         if (formData.description && formData.description.length > 1000) {
-            newErrors.description = 'Description must be less than 1000 characters';
+            newErrors.description = 'La descrizione deve essere inferiore a 1000 caratteri';
         }
 
         setErrors(newErrors);
@@ -62,10 +62,10 @@ const CreateTask: React.FC = () => {
             };
 
             const result = await dispatch(createTask(taskData)).unwrap();
-            showToast('Task created successfully!', 'success');
+            showToast('Task creato con successo!', 'success');
             navigate(`/tasks/${result.id}`);
         } catch (error) {
-            showToast('Failed to create task', 'error');
+            showToast('Errore nella creazione del task', 'error');
         }
     };
 
@@ -93,15 +93,15 @@ const CreateTask: React.FC = () => {
                     className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700"
                 >
                     <ArrowLeftIcon className="h-4 w-4 mr-1" />
-                    Back to Tasks
+                    Torna ai Task
                 </Link>
             </div>
 
             {/* Header */}
             <div className="mb-8">
-                <h1 className="text-3xl font-bold text-gray-900">Create New Task</h1>
+                <h1 className="text-3xl font-bold text-gray-900">Crea Nuovo Task</h1>
                 <p className="mt-1 text-sm text-gray-600">
-                    Add a new task to your list to keep track of your work.
+                    Aggiungi un nuovo task alla tua lista per tenere traccia del tuo lavoro.
                 </p>
             </div>
 
@@ -111,7 +111,7 @@ const CreateTask: React.FC = () => {
                     {/* Title */}
                     <div>
                         <label htmlFor="title" className="block text-sm font-medium text-gray-700">
-                            Title <span className="text-red-500">*</span>
+                            Titolo <span className="text-red-500">*</span>
                         </label>
                         <div className="mt-1">
                             <input
@@ -122,14 +122,14 @@ const CreateTask: React.FC = () => {
                                 onChange={handleChange}
                                 className={`block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${errors.title ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''
                                     }`}
-                                placeholder="Enter task title..."
+                                placeholder="Inserisci il titolo del task..."
                                 maxLength={200}
                             />
                             {errors.title && (
                                 <p className="mt-2 text-sm text-red-600">{errors.title}</p>
                             )}
                             <p className="mt-1 text-xs text-gray-500">
-                                {formData.title.length}/200 characters
+                                {formData.title.length}/200 caratteri
                             </p>
                         </div>
                     </div>
@@ -137,7 +137,7 @@ const CreateTask: React.FC = () => {
                     {/* Description */}
                     <div>
                         <label htmlFor="description" className="block text-sm font-medium text-gray-700">
-                            Description
+                            Descrizione
                         </label>
                         <div className="mt-1">
                             <textarea
@@ -148,14 +148,14 @@ const CreateTask: React.FC = () => {
                                 onChange={handleChange}
                                 className={`block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${errors.description ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''
                                     }`}
-                                placeholder="Enter task description (optional)..."
+                                placeholder="Inserisci la descrizione del task (opzionale)..."
                                 maxLength={1000}
                             />
                             {errors.description && (
                                 <p className="mt-2 text-sm text-red-600">{errors.description}</p>
                             )}
                             <p className="mt-1 text-xs text-gray-500">
-                                {formData.description.length}/1000 characters
+                                {formData.description.length}/1000 caratteri
                             </p>
                         </div>
                     </div>
@@ -171,7 +171,7 @@ const CreateTask: React.FC = () => {
                             className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                         />
                         <label htmlFor="completed" className="ml-2 block text-sm text-gray-900">
-                            Mark as completed
+                            Segna come completato
                         </label>
                     </div>
 
@@ -181,7 +181,7 @@ const CreateTask: React.FC = () => {
                             to="/tasks"
                             className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                         >
-                            Cancel
+                            Annulla
                         </Link>
                         <button
                             type="submit"
@@ -191,12 +191,12 @@ const CreateTask: React.FC = () => {
                             {isCreating ? (
                                 <>
                                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                                    Creating...
+                                    Creazione...
                                 </>
                             ) : (
                                 <>
                                     <PlusIcon className="h-4 w-4 mr-2" />
-                                    Create Task
+                                    Crea Task
                                 </>
                             )}
                         </button>
@@ -209,14 +209,14 @@ const CreateTask: React.FC = () => {
                 <div className="flex">
                     <div className="ml-3">
                         <h3 className="text-sm font-medium text-blue-800">
-                            Tips for creating effective tasks
+                            Suggerimenti per creare task efficaci
                         </h3>
                         <div className="mt-2 text-sm text-blue-700">
                             <ul className="list-disc pl-5 space-y-1">
-                                <li>Use clear, actionable titles that describe what needs to be done</li>
-                                <li>Add detailed descriptions to provide context and requirements</li>
-                                <li>Break down large tasks into smaller, manageable subtasks</li>
-                                <li>Use consistent naming conventions for similar types of tasks</li>
+                                <li>Usa titoli chiari e specifici che descrivono cosa deve essere fatto</li>
+                                <li>Aggiungi descrizioni dettagliate per fornire contesto e requisiti</li>
+                                <li>Suddividi task grandi in sottoattività più piccole e gestibili</li>
+                                <li>Usa convenzioni di denominazione coerenti per tipi simili di task</li>
                             </ul>
                         </div>
                     </div>

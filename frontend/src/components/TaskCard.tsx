@@ -24,7 +24,7 @@ const TaskCard: React.FC<TaskCardProps> = ({
     showActions = true
 }) => {
     const formatDate = (dateString: string) => {
-        return new Date(dateString).toLocaleDateString('en-US', {
+        return new Date(dateString).toLocaleDateString('it-IT', {
             year: 'numeric',
             month: 'short',
             day: 'numeric',
@@ -48,8 +48,8 @@ const TaskCard: React.FC<TaskCardProps> = ({
                         <button
                             onClick={() => onToggleComplete(task.id, !task.completed)}
                             className={`mt-1 transition-colors ${task.completed
-                                    ? 'text-green-600 hover:text-green-700'
-                                    : 'text-gray-400 hover:text-green-600'
+                                ? 'text-green-600 hover:text-green-700'
+                                : 'text-gray-400 hover:text-green-600'
                                 }`}
                         >
                             {task.completed ? (
@@ -84,10 +84,10 @@ const TaskCard: React.FC<TaskCardProps> = ({
 
                     {/* Status Badge */}
                     <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${task.completed
-                            ? 'bg-green-100 text-green-800'
-                            : 'bg-blue-100 text-blue-800'
+                        ? 'bg-green-100 text-green-800'
+                        : 'bg-blue-100 text-blue-800'
                         }`}>
-                        {task.completed ? 'Completed' : 'In Progress'}
+                        {task.completed ? 'Completato' : 'In Corso'}
                     </span>
                 </div>
 
@@ -95,9 +95,9 @@ const TaskCard: React.FC<TaskCardProps> = ({
                 <div className="flex items-center justify-between pt-3 border-t border-gray-100">
                     <div className="flex items-center text-sm text-gray-500">
                         <ClockIcon className="h-4 w-4 mr-1" />
-                        <span>Created {formatDate(task.created_at)}</span>
+                        <span>Creato {formatDate(task.created_at)}</span>
                         {task.updated_at !== task.created_at && (
-                            <span className="ml-2">• Updated {formatDate(task.updated_at)}</span>
+                            <span className="ml-2">• Aggiornato {formatDate(task.updated_at)}</span>
                         )}
                     </div>
 
@@ -106,21 +106,21 @@ const TaskCard: React.FC<TaskCardProps> = ({
                             <Link
                                 to={`/tasks/${task.id}`}
                                 className="text-gray-400 hover:text-blue-600 transition-colors"
-                                title="View Details"
+                                title="Visualizza Dettagli"
                             >
                                 <EyeIcon className="h-4 w-4" />
                             </Link>
                             <Link
                                 to={`/tasks/${task.id}/edit`}
                                 className="text-gray-400 hover:text-yellow-600 transition-colors"
-                                title="Edit Task"
+                                title="Modifica Task"
                             >
                                 <PencilIcon className="h-4 w-4" />
                             </Link>
                             <button
                                 onClick={() => onDelete(task.id)}
                                 className="text-gray-400 hover:text-red-600 transition-colors"
-                                title="Delete Task"
+                                title="Elimina Task"
                             >
                                 <TrashIcon className="h-4 w-4" />
                             </button>

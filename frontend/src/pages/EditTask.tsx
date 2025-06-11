@@ -57,15 +57,15 @@ const EditTask: React.FC = () => {
         const newErrors: Record<string, string> = {};
 
         if (!formData.title.trim()) {
-            newErrors.title = 'Title is required';
+            newErrors.title = 'Il titolo è obbligatorio';
         } else if (formData.title.trim().length < 3) {
-            newErrors.title = 'Title must be at least 3 characters long';
+            newErrors.title = 'Il titolo deve essere lungo almeno 3 caratteri';
         } else if (formData.title.trim().length > 200) {
-            newErrors.title = 'Title must be less than 200 characters';
+            newErrors.title = 'Il titolo deve essere inferiore a 200 caratteri';
         }
 
         if (formData.description && formData.description.length > 1000) {
-            newErrors.description = 'Description must be less than 1000 characters';
+            newErrors.description = 'La descrizione deve essere inferiore a 1000 caratteri';
         }
 
         setErrors(newErrors);
@@ -87,10 +87,10 @@ const EditTask: React.FC = () => {
             };
 
             await dispatch(updateTask({ id: currentTask.id, data: taskData })).unwrap();
-            showToast('Task updated successfully!', 'success');
+            showToast('Task aggiornato con successo!', 'success');
             navigate(`/tasks/${currentTask.id}`);
         } catch (error) {
-            showToast('Failed to update task', 'error');
+            showToast('Errore nell\'aggiornamento del task', 'error');
         }
     };
 
@@ -120,7 +120,7 @@ const EditTask: React.FC = () => {
     };
 
     if (isLoadingTask && !currentTask) {
-        return <Loading size="large" text="Loading task..." />;
+        return <Loading size="large" text="Caricamento task..." />;
     }
 
     if (!currentTask && !isLoadingTask) {
@@ -128,9 +128,9 @@ const EditTask: React.FC = () => {
             <div className="max-w-2xl mx-auto">
                 <div className="text-center py-12">
                     <ExclamationTriangleIcon className="mx-auto h-12 w-12 text-red-400" />
-                    <h3 className="mt-2 text-sm font-medium text-gray-900">Task not found</h3>
+                    <h3 className="mt-2 text-sm font-medium text-gray-900">Task non trovato</h3>
                     <p className="mt-1 text-sm text-gray-500">
-                        The task you're trying to edit doesn't exist or has been deleted.
+                        Il task che stai cercando di modificare non esiste o è stato eliminato.
                     </p>
                     <div className="mt-6">
                         <Link
@@ -138,7 +138,7 @@ const EditTask: React.FC = () => {
                             className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
                         >
                             <ArrowLeftIcon className="h-4 w-4 mr-2" />
-                            Back to Tasks
+                            Torna ai Task
                         </Link>
                     </div>
                 </div>
@@ -159,7 +159,7 @@ const EditTask: React.FC = () => {
                         to="/tasks"
                         className="text-gray-500 hover:text-gray-700"
                     >
-                        Tasks
+                        Task
                     </Link>
                     <span className="text-gray-400">/</span>
                     <Link
@@ -169,15 +169,15 @@ const EditTask: React.FC = () => {
                         #{currentTask.id}
                     </Link>
                     <span className="text-gray-400">/</span>
-                    <span className="text-gray-900 font-medium">Edit</span>
+                    <span className="text-gray-900 font-medium">Modifica</span>
                 </nav>
             </div>
 
             {/* Header */}
             <div className="mb-8">
-                <h1 className="text-3xl font-bold text-gray-900">Edit Task</h1>
+                <h1 className="text-3xl font-bold text-gray-900">Modifica Task</h1>
                 <p className="mt-1 text-sm text-gray-600">
-                    Make changes to your task details below.
+                    Apporta modifiche ai dettagli del tuo task qui sotto.
                 </p>
             </div>
 
@@ -187,7 +187,7 @@ const EditTask: React.FC = () => {
                     {/* Title */}
                     <div>
                         <label htmlFor="title" className="block text-sm font-medium text-gray-700">
-                            Title <span className="text-red-500">*</span>
+                            Titolo <span className="text-red-500">*</span>
                         </label>
                         <div className="mt-1">
                             <input
@@ -198,14 +198,14 @@ const EditTask: React.FC = () => {
                                 onChange={handleChange}
                                 className={`block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${errors.title ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''
                                     }`}
-                                placeholder="Enter task title..."
+                                placeholder="Inserisci il titolo del task..."
                                 maxLength={200}
                             />
                             {errors.title && (
                                 <p className="mt-2 text-sm text-red-600">{errors.title}</p>
                             )}
                             <p className="mt-1 text-xs text-gray-500">
-                                {formData.title.length}/200 characters
+                                {formData.title.length}/200 caratteri
                             </p>
                         </div>
                     </div>
@@ -213,7 +213,7 @@ const EditTask: React.FC = () => {
                     {/* Description */}
                     <div>
                         <label htmlFor="description" className="block text-sm font-medium text-gray-700">
-                            Description
+                            Descrizione
                         </label>
                         <div className="mt-1">
                             <textarea
@@ -224,14 +224,14 @@ const EditTask: React.FC = () => {
                                 onChange={handleChange}
                                 className={`block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${errors.description ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''
                                     }`}
-                                placeholder="Enter task description (optional)..."
+                                placeholder="Inserisci la descrizione del task (opzionale)..."
                                 maxLength={1000}
                             />
                             {errors.description && (
                                 <p className="mt-2 text-sm text-red-600">{errors.description}</p>
                             )}
                             <p className="mt-1 text-xs text-gray-500">
-                                {formData.description.length}/1000 characters
+                                {formData.description.length}/1000 caratteri
                             </p>
                         </div>
                     </div>
@@ -247,7 +247,7 @@ const EditTask: React.FC = () => {
                             className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                         />
                         <label htmlFor="completed" className="ml-2 block text-sm text-gray-900">
-                            Mark as completed
+                            Segna come completato
                         </label>
                     </div>
 
@@ -260,7 +260,7 @@ const EditTask: React.FC = () => {
                                 </div>
                                 <div className="ml-3">
                                     <p className="text-sm text-yellow-700">
-                                        You have unsaved changes. Don't forget to save your updates!
+                                        Hai modifiche non salvate. Non dimenticare di salvare i tuoi aggiornamenti!
                                     </p>
                                 </div>
                             </div>
@@ -273,7 +273,7 @@ const EditTask: React.FC = () => {
                             to={`/tasks/${currentTask.id}`}
                             className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                         >
-                            Cancel
+                            Annulla
                         </Link>
                         <button
                             type="submit"
@@ -283,12 +283,12 @@ const EditTask: React.FC = () => {
                             {isUpdating ? (
                                 <>
                                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                                    Saving...
+                                    Salvataggio...
                                 </>
                             ) : (
                                 <>
                                     <PencilIcon className="h-4 w-4 mr-2" />
-                                    Save Changes
+                                    Salva Modifiche
                                 </>
                             )}
                         </button>
@@ -303,8 +303,8 @@ const EditTask: React.FC = () => {
                         <p>Task ID: #{currentTask.id}</p>
                     </div>
                     <div className="text-right">
-                        <p>Created: {new Date(currentTask.created_at).toLocaleDateString()}</p>
-                        <p>Last updated: {new Date(currentTask.updated_at).toLocaleDateString()}</p>
+                        <p>Creato: {new Date(currentTask.created_at).toLocaleDateString('it-IT')}</p>
+                        <p>Ultimo aggiornamento: {new Date(currentTask.updated_at).toLocaleDateString('it-IT')}</p>
                     </div>
                 </div>
             </div>

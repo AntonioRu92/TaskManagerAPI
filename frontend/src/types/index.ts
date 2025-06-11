@@ -50,6 +50,10 @@ export interface ErrorResponse {
 export interface SearchFilters {
     page?: number;
     per_page?: number;
+    q?: string;
+    completed?: string;
+    sort_by?: string;
+    sort_direction?: string;
 }
 
 export type LoadingState = 'idle' | 'loading';

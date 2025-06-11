@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
                             className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium flex items-center space-x-2 transition-colors"
                         >
                             <PlusIcon className="h-4 w-4" />
-                            <span>New Task</span>
+                            <span>Nuovo Task</span>
                         </Link>
                     </div>
                 </div>
