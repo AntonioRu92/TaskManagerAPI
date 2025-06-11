@@ -2,6 +2,9 @@
 
 Applicazione web per la gestione di task con API Rails e frontend React.
 
+> **🎉 OTTIMIZZAZIONE COMPLETATA!** 
+> Consulta [OPTIMIZATION_COMPLETE.md](./OPTIMIZATION_COMPLETE.md) per tutti i dettagli delle migliorie apportate.
+
 ## 🚀 Quick Start
 
 ### 1. Clone del progetto
@@ -181,6 +184,41 @@ docker-compose restart [backend|frontend|db]
 
 # Status servizi
 docker-compose ps
+```
+
+### 🔧 Risoluzione Problemi
+
+**Se il setup si blocca o da errori:**
+```bash
+# Reset completo
+docker-compose down
+docker system prune -f
+./setup.sh
+```
+
+**Se ci sono problemi persistenti:**
+```bash
+# Build completo senza cache
+docker-compose down
+docker-compose build --no-cache
+docker-compose up -d
+```
+
+**Verificare che tutto funzioni:**
+```bash
+# Controlla status
+docker-compose ps
+
+# Controlla logs
+docker-compose logs frontend
+docker-compose logs backend
+
+# Test rapido API
+curl http://localhost:3001/api/v1/tasks
+```
+
+# Test rapido API
+curl http://localhost:3001/api/v1/tasks
 ```
 
 **È tutto qui!** Lo script `setup.sh` gestisce tutto automaticamente. 🚀

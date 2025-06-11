@@ -3155,3 +3155,161 @@ Processing by Api::V1::TasksController#index as HTML
 Completed 200 OK in 52ms (Views: 0.7ms | ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 0.0ms)
 
 
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" SCHEMA pg_catalog /*application='TaskManagerApi'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "tasks" CASCADE /*application='TaskManagerApi'*/[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" bigserial primary key, "title" character varying NOT NULL, "description" text, "completed" boolean DEFAULT FALSE NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='TaskManagerApi'*/[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_completed" ON "tasks" ("completed") /*application='TaskManagerApi'*/[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250610090436) /*application='TaskManagerApi'*/[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-06-11 10:42:33.793770', '2025-06-11 10:42:33.793774') RETURNING "key" /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '1c611264f994bbb91335ed2035035ad3173a2f17', '2025-06-11 10:42:33.811147', '2025-06-11 10:42:33.811150') RETURNING "key" /*application='TaskManagerApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='TaskManagerApi'*/[0m
+  [1m[35m (109.4ms)[0m  [1m[35mCREATE DATABASE "task_manager_test" ENCODING = 'unicode' /*application='TaskManagerApi'*/[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" SCHEMA pg_catalog /*application='TaskManagerApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "tasks" CASCADE /*application='TaskManagerApi'*/[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" bigserial primary key, "title" character varying NOT NULL, "description" text, "completed" boolean DEFAULT FALSE NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='TaskManagerApi'*/[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_completed" ON "tasks" ("completed") /*application='TaskManagerApi'*/[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250610090436) /*application='TaskManagerApi'*/[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-06-11 10:42:34.014296', '2025-06-11 10:42:34.014299') RETURNING "key" /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2025-06-11 10:42:34.021222' WHERE "ar_internal_metadata"."key" = 'environment' /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '1c611264f994bbb91335ed2035035ad3173a2f17', '2025-06-11 10:42:34.023242', '2025-06-11 10:42:34.023243') RETURNING "key" /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Implementare autenticazione utente' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Create (0.6ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "completed", "created_at", "updated_at") VALUES ('Implementare autenticazione utente', 'Aggiungere sistema di login e registrazione con JWT per sicurezza API', FALSE, '2025-06-04 10:42:34.124760', '2025-06-11 10:42:34.131222') RETURNING "id" /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Scrivere documentazione API completa' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Create (2.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "completed", "created_at", "updated_at") VALUES ('Scrivere documentazione API completa', 'Documentare tutti gli endpoints con esempi dettagliati di richieste e risposte JSON', TRUE, '2025-06-09 10:42:34.147220', '2025-06-11 10:42:34.148732') RETURNING "id" /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Configurare pipeline CI/CD' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Create (1.5ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "completed", "created_at", "updated_at") VALUES ('Configurare pipeline CI/CD', 'Impostare continuous integration e deployment con GitHub Actions', FALSE, '2025-06-06 10:42:34.156621', '2025-06-11 10:42:34.157303') RETURNING "id" /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Ottimizzare performance database PostgreSQL' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Create (2.1ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "completed", "created_at", "updated_at") VALUES ('Ottimizzare performance database PostgreSQL', 'Aggiungere indici strategici e ottimizzare query complesse per migliorare le performance', TRUE, '2025-06-10 10:42:34.165869', '2025-06-11 10:42:34.169355') RETURNING "id" /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Implementare rate limiting per API' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Create (1.0ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "completed", "created_at", "updated_at") VALUES ('Implementare rate limiting per API', 'Aggiungere limitazione alle richieste per prevenire abusi e attacchi DDoS', FALSE, '2025-06-08 10:42:34.188713', '2025-06-11 10:42:34.188874') RETURNING "id" /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Progettare interfaccia utente moderna' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Create (1.8ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "completed", "created_at", "updated_at") VALUES ('Progettare interfaccia utente moderna', 'Creare mockup e prototipi per una UI responsive e user-friendly', FALSE, '2025-06-07 10:42:34.198927', '2025-06-11 10:42:34.199460') RETURNING "id" /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Implementare tema scuro per applicazione' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Create (0.9ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "completed", "created_at", "updated_at") VALUES ('Implementare tema scuro per applicazione', 'Aggiungere supporto per modalità scura con toggle automatico basato su preferenze sistema', TRUE, '2025-06-05 10:42:34.208002', '2025-06-11 10:42:34.208463') RETURNING "id" /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Scrivere test di integrazione completi' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Create (1.2ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "completed", "created_at", "updated_at") VALUES ('Scrivere test di integrazione completi', 'Creare suite di test end-to-end per tutti i flussi principali dell''applicazione', FALSE, '2025-06-11 09:42:34.215728', '2025-06-11 10:42:34.215839') RETURNING "id" /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Configurare code coverage reporting' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Create (2.4ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "completed", "created_at", "updated_at") VALUES ('Configurare code coverage reporting', 'Implementare strumenti per monitorare la copertura dei test e generare report dettagliati', TRUE, '2025-06-11 08:42:34.221784', '2025-06-11 10:42:34.222110') RETURNING "id" /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Configurare environment di staging' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Create (0.8ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "completed", "created_at", "updated_at") VALUES ('Configurare environment di staging', 'Preparare ambiente di pre-produzione per testing finale prima del deploy', FALSE, '2025-06-11 10:12:34.229239', '2025-06-11 10:42:34.231296') RETURNING "id" /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Setup monitoraggio e logging produzione' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Create (1.6ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "completed", "created_at", "updated_at") VALUES ('Setup monitoraggio e logging produzione', 'Implementare Sentry per error tracking e New Relic per performance monitoring', FALSE, '2025-06-01 10:42:34.237425', '2025-06-11 10:42:34.239402') RETURNING "id" /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."title" = 'Audit sicurezza applicazione' LIMIT 1 /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Create (0.9ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "completed", "created_at", "updated_at") VALUES ('Audit sicurezza applicazione', 'Eseguire penetration testing e vulnerability assessment completo', TRUE, '2025-06-03 10:42:34.253041', '2025-06-11 10:42:34.253501') RETURNING "id" /*application='TaskManagerApi'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."completed" = TRUE /*application='TaskManagerApi'*/[0m
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."completed" = FALSE /*application='TaskManagerApi'*/[0m
+Started GET "/api/v1/tasks" for 192.168.65.1 at 2025-06-11 10:42:38 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mTask Load (21.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY created_at desc LIMIT 10 OFFSET 0 /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:17:in 'Enumerable#map'
+  [1m[36mTask Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:187:in 'Api::V1::TasksController#pagination_meta'
+Completed 200 OK in 179ms (Views: 6.9ms | ActiveRecord: 33.1ms (2 queries, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/api/v1/tasks" for 192.168.65.1 at 2025-06-11 10:42:56 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY created_at desc LIMIT 10 OFFSET 0 /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:17:in 'Enumerable#map'
+  [1m[36mTask Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:187:in 'Api::V1::TasksController#pagination_meta'
+Completed 200 OK in 63ms (Views: 0.8ms | ActiveRecord: 1.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/tasks?page=1&per_page=10" for 192.168.65.1 at 2025-06-11 10:43:11 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Api::V1::TasksController#index as HTML
+  Parameters: {"page" => "1", "per_page" => "10"}
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY created_at desc LIMIT 10 OFFSET 0 /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:17:in 'Enumerable#map'
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f843d40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f843d40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f843d40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f843d40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f843d40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f843d40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f843d40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f843d40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f843d40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f843d40>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+  [1m[36mTask Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:187:in 'Api::V1::TasksController#pagination_meta'
+Completed 200 OK in 53ms (Views: 0.2ms | ActiveRecord: 1.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/tasks?page=1&per_page=10" for 192.168.65.1 at 2025-06-11 10:43:11 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Api::V1::TasksController#index as HTML
+  Parameters: {"page" => "1", "per_page" => "10"}
+  [1m[36mTask Load (1.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY created_at desc LIMIT 10 OFFSET 0 /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:17:in 'Enumerable#map'
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f7fac80>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f7fac80>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f7fac80>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f7fac80>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f7fac80>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f7fac80>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f7fac80>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f7fac80>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f7fac80>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff8f7fac80>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+  [1m[36mTask Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:187:in 'Api::V1::TasksController#pagination_meta'
+Completed 200 OK in 43ms (Views: 0.2ms | ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/tasks" for 192.168.65.1 at 2025-06-11 10:43:18 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Api::V1::TasksController#create as */*
+  Parameters: {"task" => {"title" => "Test Setup Automatico", "description" => "Verifica che il setup automatico funzioni correttamente", "completed" => false}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='create',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:32:in 'Api::V1::TasksController#create'
+  [1m[36mTask Create (1.6ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "completed", "created_at", "updated_at") VALUES ('Test Setup Automatico', 'Verifica che il setup automatico funzioni correttamente', FALSE, '2025-06-11 10:43:18.658348', '2025-06-11 10:43:18.658348') RETURNING "id" /*action='create',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:32:in 'Api::V1::TasksController#create'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT /*action='create',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:32:in 'Api::V1::TasksController#create'
+Completed 201 Created in 73ms (Views: 0.2ms | ActiveRecord: 4.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+

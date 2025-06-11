@@ -91,13 +91,13 @@ for i in {1..60}; do
 done
 
 # Controlla frontend
-for i in {1..60}; do
+for i in {1..90}; do
     if curl -s http://localhost:3002 &> /dev/null; then
         echo "✅ Frontend pronto"
         break
     fi
-    if [ $i -eq 60 ]; then
-        echo "❌ Frontend non risponde dopo 60 secondi"
+    if [ $i -eq 90 ]; then
+        echo "❌ Frontend non risponde dopo 90 secondi"
         echo "   Logs frontend:"
         docker-compose logs frontend
         exit 1

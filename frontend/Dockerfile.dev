@@ -16,5 +16,5 @@ COPY . .
 # Porta dell'applicazione
 EXPOSE 3002
 
-# Avvia server di sviluppo
-CMD ["npm", "start"]
+# Installa dipendenze aggiuntive se mancanti al momento del run
+CMD ["sh", "-c", "npm install && npm start"]

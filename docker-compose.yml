@@ -26,9 +26,14 @@ services:
       - "3002:3002"
     environment:
       - REACT_APP_API_URL=http://localhost:3001/api
+      - CHOKIDAR_USEPOLLING=true
     volumes:
-      - ./frontend:/app
-      - node_modules:/app/node_modules
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+      - ./frontend/package.json:/app/package.json
+      - ./frontend/package-lock.json:/app/package-lock.json
+    depends_on:
+      - backend
 
   db:
     image: postgres:14-alpine
@@ -42,5 +47,4 @@ services:
       - pg_data:/var/lib/postgresql/data
 
 volumes:
-  node_modules:
   pg_data:
