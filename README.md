@@ -6,7 +6,7 @@ Applicazione web per la gestione di task con API Rails e frontend React.
 
 ### 1. Clone del progetto
 ```bash
-git clone <repository-url>
+git clone <git@github.com:AntonioRu92/TaskManagerAPI.git
 cd Task_Manager_API
 ```
 
