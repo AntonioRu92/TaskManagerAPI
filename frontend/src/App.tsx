@@ -25,6 +25,9 @@ function App() {
                         </Routes>
                     </main>
                     <ToastContainer />
+                    <footer className="bg-gray-800 text-white py-4 text-center">
+                        <p>Creato con ❤️ da <a href="https://www.linkedin.com/in/antonio-russo-full-stack-web-developer-junior/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Antonio Russo</a></p>
+                    </footer>
                 </div>
             </Router>
         </Provider>

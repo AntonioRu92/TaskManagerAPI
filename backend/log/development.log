@@ -3313,3 +3313,118 @@ Processing by Api::V1::TasksController#create as */*
 Completed 201 Created in 73ms (Views: 0.2ms | ActiveRecord: 4.9ms (1 query, 0 cached) | GC: 0.0ms)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+Started GET "/api/v1/tasks" for 192.168.65.1 at 2025-06-11 11:03:24 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TaskManagerApi'*/[0m
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mTask Load (18.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY created_at desc LIMIT 10 OFFSET 0 /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:17:in 'Enumerable#map'
+  [1m[36mTask Count (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:187:in 'Api::V1::TasksController#pagination_meta'
+Completed 200 OK in 193ms (Views: 7.0ms | ActiveRecord: 28.7ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/api/v1/tasks?page=1&per_page=10" for 192.168.65.1 at 2025-06-11 11:04:37 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Api::V1::TasksController#index as HTML
+  Parameters: {"page" => "1", "per_page" => "10"}
+  [1m[36mTask Load (1.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY created_at desc LIMIT 10 OFFSET 0 /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:17:in 'Enumerable#map'
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71786880>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71786880>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71786880>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71786880>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71786880>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71786880>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71786880>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71786880>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71786880>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71786880>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+  [1m[36mTask Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:187:in 'Api::V1::TasksController#pagination_meta'
+Completed 200 OK in 62ms (Views: 1.1ms | ActiveRecord: 1.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/tasks?page=1&per_page=10" for 192.168.65.1 at 2025-06-11 12:01:58 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Api::V1::TasksController#index as HTML
+  Parameters: {"page" => "1", "per_page" => "10"}
+  [1m[36mTask Load (24.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY created_at desc LIMIT 10 OFFSET 0 /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:17:in 'Enumerable#map'
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff7169d360>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff7169d360>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff7169d360>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff7169d360>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff7169d360>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff7169d360>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff7169d360>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff7169d360>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff7169d360>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff7169d360>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+  [1m[36mTask Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:187:in 'Api::V1::TasksController#pagination_meta'
+Completed 200 OK in 105ms (Views: 0.8ms | ActiveRecord: 29.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/tasks?page=1&per_page=10&q=test" for 192.168.65.1 at 2025-06-11 12:03:58 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Api::V1::TasksController#index as HTML
+  Parameters: {"page" => "1", "per_page" => "10", "q" => "test"}
+  [1m[36mTask Load (1.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE (title ILIKE '%test%' OR description ILIKE '%test%') ORDER BY created_at desc LIMIT 10 OFFSET 0 /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:17:in 'Enumerable#map'
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff715fdb80>, params: {"page" => "1", "per_page" => "10", "q" => "test", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff715fdb80>, params: {"page" => "1", "per_page" => "10", "q" => "test", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff715fdb80>, params: {"page" => "1", "per_page" => "10", "q" => "test", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff715fdb80>, params: {"page" => "1", "per_page" => "10", "q" => "test", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff715fdb80>, params: {"page" => "1", "per_page" => "10", "q" => "test", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+Completed 200 OK in 55ms (Views: 0.3ms | ActiveRecord: 1.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/tasks?page=1&per_page=10&q=tests" for 192.168.65.1 at 2025-06-11 12:04:02 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Api::V1::TasksController#index as HTML
+  Parameters: {"page" => "1", "per_page" => "10", "q" => "tests"}
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE (title ILIKE '%tests%' OR description ILIKE '%tests%') ORDER BY created_at desc LIMIT 10 OFFSET 0 /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:17:in 'Enumerable#map'
+Completed 200 OK in 44ms (Views: 0.1ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/tasks?page=1&per_page=10&q=test" for 192.168.65.1 at 2025-06-11 12:04:04 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Api::V1::TasksController#index as HTML
+  Parameters: {"page" => "1", "per_page" => "10", "q" => "test"}
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE (title ILIKE '%test%' OR description ILIKE '%test%') ORDER BY created_at desc LIMIT 10 OFFSET 0 /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:17:in 'Enumerable#map'
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71555ac0>, params: {"page" => "1", "per_page" => "10", "q" => "test", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71555ac0>, params: {"page" => "1", "per_page" => "10", "q" => "test", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71555ac0>, params: {"page" => "1", "per_page" => "10", "q" => "test", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71555ac0>, params: {"page" => "1", "per_page" => "10", "q" => "test", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71555ac0>, params: {"page" => "1", "per_page" => "10", "q" => "test", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+Completed 200 OK in 57ms (Views: 0.1ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/tasks?page=1&per_page=10" for 192.168.65.1 at 2025-06-11 12:04:08 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Api::V1::TasksController#index as HTML
+  Parameters: {"page" => "1", "per_page" => "10"}
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY created_at desc LIMIT 10 OFFSET 0 /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:17:in 'Enumerable#map'
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71516eb0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71516eb0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71516eb0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71516eb0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71516eb0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71516eb0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71516eb0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71516eb0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71516eb0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+[31mUnpermitted parameters: :page, :per_page. Context: { controller: Api::V1::TasksController, action: index, request: #<ActionDispatch::Request:0x0000ffff71516eb0>, params: {"page" => "1", "per_page" => "10", "controller" => "api/v1/tasks", "action" => "index"} }[0m
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" /*action='index',application='TaskManagerApi',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:187:in 'Api::V1::TasksController#pagination_meta'
+Completed 200 OK in 51ms (Views: 0.2ms | ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
