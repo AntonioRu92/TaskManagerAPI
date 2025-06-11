@@ -2,9 +2,6 @@
 
 Applicazione web per la gestione di task con API Rails e frontend React.
 
-> **🎉 OTTIMIZZAZIONE COMPLETATA!** 
-> Consulta [OPTIMIZATION_COMPLETE.md](./OPTIMIZATION_COMPLETE.md) per tutti i dettagli delle migliorie apportate.
-
 ## 🚀 Quick Start
 
 ### 1. Clone del progetto
