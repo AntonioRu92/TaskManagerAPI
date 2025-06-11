@@ -14,33 +14,36 @@ cd Task_Manager_API
 
 ### Prerequisiti
 - Docker Desktop installato e avviato
-- Docker BuildKit abilitato (automatico in Docker Desktop)
 
-### Build Ottimizzato
+### Setup Automatico
 ```bash
-# Build veloce con cache (consigliato per sviluppo)
-./docker_build_optimized.sh cache
-
-# Build completo senza cache (solo se necessario)
-./docker_build_optimized.sh fresh
-
-# Cleanup cache Docker
-./docker_build_optimized.sh cleanup
+# Dopo aver clonato il repository, esegui:
+./setup.sh
 ```
 
-### Comandi Rapidi
+Lo script farà automaticamente:
+- ✅ Verifica prerequisiti (Docker, Docker Compose)
+- 📦 Build delle immagini Docker
+- 🚀 Avvio di tutti i servizi
+- 🔍 Test che tutto funzioni correttamente
+- 📋 Mostra URLs e comandi utili
+
+### Comandi Manuali (opzionali)
 ```bash
-# Avvia tutti i servizi (con hot reloading ottimizzato)
+# Build e avvio
 docker-compose up -d
 
-# Ferma tutti i servizi
+# Ferma tutto
 docker-compose down
 
 # Visualizza logs
 docker-compose logs [service-name]
 
-# Ricostruisci e riavvia (solo se cambi dipendenze)
-docker-compose down && ./docker_build_optimized.sh cache && docker-compose up -d
+# Ricostruisci immagini (solo se cambi dipendenze)
+docker-compose build
+
+# Status servizi
+docker-compose ps
 ```
 
 ### Accesso applicazione
@@ -139,6 +142,48 @@ docker-compose ps
 - Hot reloading abilitato per entrambi frontend e backend
 - CORS configurato per comunicazione cross-origin
 - Database persistente tramite Docker volumes
+
+## 🚀 Quick Start per Nuovi Sviluppatori
+
+**Dopo aver clonato il repository, è sufficiente un comando:**
+
+```bash
+# 1. Assicurati che Docker Desktop sia in esecuzione
+# 2. Esegui il setup automatico
+./setup.sh
+```
+
+Lo script farà automaticamente:
+- ✅ Verifica che Docker sia installato e funzionante  
+- 📦 Build delle immagini Docker (backend Rails + frontend React)
+- 🚀 Avvio di tutti i servizi (database, backend, frontend)
+- 🔍 Test di salute per verificare che tutto funzioni
+- 🎉 Conferma che l'applicazione è pronta
+
+**Tempo totale: ~3-5 minuti al primo setup**
+
+### 📱 Applicazione Pronta
+Dopo il setup, l'applicazione sarà disponibile su:
+- **Frontend**: http://localhost:3002
+- **Backend API**: http://localhost:3001/api/v1/tasks
+- **Database**: PostgreSQL su localhost:5432
+
+### 🛠 Comandi Utili per Sviluppo
+```bash
+# Ferma tutto
+docker-compose down
+
+# Visualizza logs
+docker-compose logs [backend|frontend|db]
+
+# Riavvia un servizio
+docker-compose restart [backend|frontend|db]
+
+# Status servizi
+docker-compose ps
+```
+
+**È tutto qui!** Lo script `setup.sh` gestisce tutto automaticamente. 🚀
 
 ### 🚀 Ottimizzazioni Docker
 - **BuildKit cache mounts**: Riduce i tempi di rebuild delle dipendenze
