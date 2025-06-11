@@ -3,6 +3,10 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile.dev
+      # Enable BuildKit cache mounts
+      cache_from:
+        - task_manager_backend:latest
+      target: development
     ports:
       - "3001:3001"
     environment:
@@ -12,7 +16,11 @@ services:
       - RAILS_ENV=development
       - PORT=3001
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend:/rails
+      - bundle_cache:/usr/local/bundle
     entrypoint: []
     command: [ "sh", "-c", "rm -f /rails/tmp/pids/server.pid && ./bin/rails db:prepare && ./bin/rails server -b 0.0.0.0 -p 3001" ]
 
@@ -20,24 +28,38 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile.dev
+      # Enable BuildKit cache mounts
+      cache_from:
+        - task_manager_frontend:latest
     ports:
       - "3002:3002"
     environment:
       - REACT_APP_API_URL=http://localhost:3001/api
+      - WATCHPACK_POLLING=true
+      - FAST_REFRESH=true
     volumes:
       - ./frontend:/app
-      - node_modules:/app/node_modules
+      - node_modules_cache:/app/node_modules
+    depends_on:
+      - backend
 
   db:
-    image: postgres:14
+    image: postgres:14-alpine
     ports:
       - "5432:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=task_manager_development
     volumes:
       - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
-  node_modules:
+  node_modules_cache:
+  bundle_cache:
   pg_data:

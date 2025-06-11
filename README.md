@@ -14,10 +14,23 @@ cd Task_Manager_API
 
 ### Prerequisiti
 - Docker Desktop installato e avviato
+- Docker BuildKit abilitato (automatico in Docker Desktop)
 
-### Comandi
+### Build Ottimizzato
 ```bash
-# Avvia tutti i servizi
+# Build veloce con cache (consigliato per sviluppo)
+./docker_build_optimized.sh cache
+
+# Build completo senza cache (solo se necessario)
+./docker_build_optimized.sh fresh
+
+# Cleanup cache Docker
+./docker_build_optimized.sh cleanup
+```
+
+### Comandi Rapidi
+```bash
+# Avvia tutti i servizi (con hot reloading ottimizzato)
 docker-compose up -d
 
 # Ferma tutti i servizi
@@ -26,8 +39,8 @@ docker-compose down
 # Visualizza logs
 docker-compose logs [service-name]
 
-# Ricostruisci e riavvia
-docker-compose down && docker-compose up --build -d
+# Ricostruisci e riavvia (solo se cambi dipendenze)
+docker-compose down && ./docker_build_optimized.sh cache && docker-compose up -d
 ```
 
 ### Accesso applicazione
@@ -126,6 +139,14 @@ docker-compose ps
 - Hot reloading abilitato per entrambi frontend e backend
 - CORS configurato per comunicazione cross-origin
 - Database persistente tramite Docker volumes
+
+### 🚀 Ottimizzazioni Docker
+- **BuildKit cache mounts**: Riduce i tempi di rebuild delle dipendenze
+- **Multi-layer caching**: Separa dipendenze dal codice applicativo
+- **Parallel builds**: Build simultaneo di backend e frontend
+- **Volume caching**: Cache persistente per node_modules e bundle
+- **Alpine images**: Immagini più leggere per il frontend
+- **Health checks**: Avvio coordinato dei servizi
 
 ## 🏗 Stack tecnologico
 

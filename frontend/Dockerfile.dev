@@ -1,16 +1,26 @@
-FROM node:18
+# syntax=docker/dockerfile:1
+# Development Dockerfile - Optimized for fast builds and hot reloading
+
+FROM node:18-alpine
 
 WORKDIR /app
 
-# Install dependencies
-COPY package.json package-lock.json ./
-RUN npm install
+# Copy package files first (better layer caching)
+COPY package.json package-lock.json* ./
 
-# Copy application code
+# Install dependencies with cache mount
+RUN --mount=type=cache,target=/root/.npm \
+    npm ci --only=production=false
+
+# Copy source code
 COPY . .
 
 # Expose port
 EXPOSE 3002
 
-# Start React development server
+# Set environment
+ENV PORT=3002
+ENV REACT_APP_API_URL=http://localhost:3001/api
+
+# Start React development server with hot reloading
 CMD ["npm", "start"]
