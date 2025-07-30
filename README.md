@@ -1,3 +1,7 @@
+<img width="1260" height="845" alt="Screenshot 2025-07-30 alle 10 49 58" src="https://github.com/user-attachments/assets/5f2e7cdb-b338-4bd5-9454-d340e73ba18f" />
+
+
+
 # Task Manager
 
 Applicazione web per la gestione di task con API Rails e frontend React.
